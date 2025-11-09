@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process - Leaf Green Training Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        :root {
+            --forest-green: #1B4332;
+            --sage-green: #52B788;
+            --charcoal: #2D3748;
+            --warm-white: #FEFEFE;
+            --rich-black: #1A202C;
+        }
+        
+        body {
+            font-family: 'Suisse Int\'l', sans-serif;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #F8F9FA 100%);
+            color: var(--rich-black);
+            line-height: 1.6;
+        }
+        
+        .tiempos {
+            font-family: 'Tiempos Headline', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--sage-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('resources/process-abstract.png') center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .process-step {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-4px);
+        }
+        
+        .process-step.active {
+            background: linear-gradient(135deg, var(--forest-green), var(--sage-green));
+            color: white;
+        }
+        
+        .process-step.active .step-number {
+            background: white;
+            color: var(--forest-green);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--sage-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 80%;
+            height: 4px;
+            background: #E5E7EB;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--sage-green), var(--forest-green));
+            border-radius: 2px;
+            transition: width 0.8s ease;
+            width: 0%;
+        }
+        
+        .process-detail {
+            display: none;
+            opacity: 0;
+        }
+        
+        .process-detail.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">LG</span>
+                    </div>
+                    <span class="tiempos text-xl font-bold text-gray-800">Leaf Green</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">About</a>
+                    <a href="audit.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Audit</a>
+                    <a href="services.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Services</a>
+                    <a href="#process" class="nav-link text-green-800 font-medium">Process</a>
+                    <a href="trackrecord.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Track Record</a>
+                    <a href="cta.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section pt-32 pb-20">
+        <div class="hero-content max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <h1 class="tiempos text-5xl lg:text-6xl font-bold text-white mb-6">
+                    From Insight to Impact
+                </h1>
+                <p class="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                    Our proven 5-stage process ensures your training investment delivers real, measurable improvement — 
+                    not just tick-box training.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Overview -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <h2 class="tiempos text-4xl font-bold text-gray-800">
+                            A Systematic Approach to Organizational Transformation
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            We don't believe in one-size-fits-all solutions. Our methodology combines rigorous analysis, 
+                            collaborative design, expert delivery, and continuous improvement to ensure sustainable results.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="tiempos text-2xl font-bold text-gray-800">Why Our Process Works</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-600">Data-driven insights eliminate guesswork and assumptions</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-600">Collaborative design ensures buy-in and relevance</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-600">Expert facilitation drives engagement and retention</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-600">Continuous measurement and refinement ensure lasting impact</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="floating-element">
+                    <img src="resources/process-abstract.png" alt="Process Optimization" class="rounded-2xl shadow-2xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Process Timeline -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="tiempos text-4xl font-bold text-gray-800 mb-4">Our 5-Stage Methodology</h2>
+                <p class="text-xl text-gray-600">Click on each stage to explore our comprehensive approach</p>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="relative mb-16">
+                <div class="timeline-line">
+                    <div class="timeline-progress" id="timeline-progress"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-5 gap-8 relative z-10">
+                    <div class="process-step text-center" data-step="1">
+                        <div class="step-number mx-auto mb-4">1</div>
+                        <h3 class="tiempos text-lg font-bold text-gray-800 mb-2">Anonymous Audit™</h3>
+                        <p class="text-sm text-gray-600">Identify core issues</p>
+                    </div>
+                    
+                    <div class="process-step text-center" data-step="2">
+                        <div class="step-number mx-auto mb-4">2</div>
+                        <h3 class="tiempos text-lg font-bold text-gray-800 mb-2">Co-Design</h3>
+                        <p class="text-sm text-gray-600">Build tailored strategy</p>
+                    </div>
+                    
+                    <div class="process-step text-center" data-step="3">
+                        <div class="step-number mx-auto mb-4">3</div>
+                        <h3 class="tiempos text-lg font-bold text-gray-800 mb-2">Deliver</h3>
+                        <p class="text-sm text-gray-600">Engage expert facilitators</p>
+                    </div>
+                    
+                    <div class="process-step text-center" data-step="4">
+                        <div class="step-number mx-auto mb-4">4</div>
+                        <h3 class="tiempos text-lg font-bold text-gray-800 mb-2">Evaluate</h3>
+                        <p class="text-sm text-gray-600">Track outcomes</p>
+                    </div>
+                    
+                    <div class="process-step text-center" data-step="5">
+                        <div class="step-number mx-auto mb-4">5</div>
+                        <h3 class="tiempos text-lg font-bold text-gray-800 mb-2">Refine</h3>
+                        <p class="text-sm text-gray-600">Continuous growth</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Process Details -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <div class="process-detail active" id="step-1">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="tiempos text-3xl font-bold text-gray-800 mb-6">Stage 1: Anonymous Audit™</h3>
+                            <p class="text-lg text-gray-600 mb-6">
+                                We begin with our proprietary Anonymous Organisational Audit™ — a comprehensive, 
+                                confidential assessment that reveals the true causes of underperformance without 
+                                risking employee privacy or organizational disruption.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">50+ organizational health indicators assessed</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">100% anonymous and confidential process</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Data-driven insights based on behavioral science</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-16 h-16 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-500">Comprehensive organizational health assessment</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-detail" id="step-2">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="tiempos text-3xl font-bold text-gray-800 mb-6">Stage 2: Co-Design</h3>
+                            <p class="text-lg text-gray-600 mb-6">
+                                We collaborate with your leadership team to build a strategy that fits your business reality. 
+                                This ensures buy-in, relevance, and alignment with your organizational goals and constraints.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Leadership team involvement and buy-in</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Customized training modules and content</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Alignment with business objectives and constraints</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-16 h-16 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-500">Collaborative strategy development</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-detail" id="step-3">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="tiempos text-3xl font-bold text-gray-800 mb-6">Stage 3: Deliver</h3>
+                            <p class="text-lg text-gray-600 mb-6">
+                                Our expert facilitators engage your team through interactive, practical training sessions 
+                                that combine theory with real-world application. We make learning stick through 
+                                experiential exercises and peer collaboration.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Expert facilitators with industry experience</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Interactive and experiential learning methods</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Real-world case studies and practical exercises</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-16 h-16 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-500">Expert-led interactive training</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-detail" id="step-4">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="tiempos text-3xl font-bold text-gray-800 mb-6">Stage 4: Evaluate</h3>
+                            <p class="text-lg text-gray-600 mb-6">
+                                We track outcomes and improvements through multiple measurement points, 
+                                ensuring your training investment delivers measurable ROI. Our evaluation 
+                                goes beyond satisfaction surveys to measure real behavior change and business impact.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Pre and post-training assessments</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Behavior change measurement</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Business impact and ROI analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-16 h-16 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-500">Measurable results and ROI tracking</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-detail" id="step-5">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="tiempos text-3xl font-bold text-gray-800 mb-6">Stage 5: Refine</h3>
+                            <p class="text-lg text-gray-600 mb-6">
+                                Our partnership doesn't end with delivery. We continuously refine and optimize 
+                                your training programs based on evaluation results, ensuring sustained growth 
+                                and continuous improvement in organizational performance.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Ongoing performance monitoring</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Program optimization based on results</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600">Long-term partnership for sustained success</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-16 h-16 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-gray-500">Continuous improvement cycle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-12">
+                <h2 class="tiempos text-3xl font-bold text-gray-800 mb-4">Ready to Transform Your Organization?</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Experience our proven 5-stage process and turn training from a cost center into a competitive advantage.
+                </p>
+                <a href="cta.html" class="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
+                    Start Your Transformation Journey
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-4 mb-6">
+                <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">LG</span>
+                </div>
+                <span class="tiempos text-2xl font-bold">Leaf Green Training Solutions</span>
+            </div>
+            <p class="text-gray-400 mb-4">Transforming People. Optimizing Processes. Driving Results.</p>
+            <p class="text-gray-500 text-sm">© 2024 Leaf Green Training Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Process timeline interaction
+        const processSteps = document.querySelectorAll('.process-step');
+        const processDetails = document.querySelectorAll('.process-detail');
+        const timelineProgress = document.getElementById('timeline-progress');
+        
+        function activateStep(stepNumber) {
+            // Remove active class from all steps
+            processSteps.forEach(step => step.classList.remove('active'));
+            processDetails.forEach(detail => detail.classList.remove('active'));
+            
+            // Add active class to current step
+            const currentStep = document.querySelector(`[data-step="${stepNumber}"]`);
+            const currentDetail = document.getElementById(`step-${stepNumber}`);
+            
+            currentStep.classList.add('active');
+            currentDetail.classList.add('active');
+            
+            // Update timeline progress
+            const progress = (stepNumber / 5) * 100;
+            timelineProgress.style.width = progress + '%';
+        }
+        
+        // Add click listeners to process steps
+        processSteps.forEach(step => {
+            step.addEventListener('click', () => {
+                const stepNumber = parseInt(step.dataset.step);
+                activateStep(stepNumber);
+            });
+        });
+        
+        // Auto-cycle through steps on load
+        let currentStep = 1;
+        const autoCycle = setInterval(() => {
+            activateStep(currentStep);
+            currentStep = currentStep >= 5 ? 1 : currentStep + 1;
+        }, 3000);
+        
+        // Stop auto-cycle when user interacts
+        processSteps.forEach(step => {
+            step.addEventListener('click', () => {
+                clearInterval(autoCycle);
+            });
+        });
+        
+        // Initialize with first step
+        activateStep(1);
+    </script>
+</body>
+</html>

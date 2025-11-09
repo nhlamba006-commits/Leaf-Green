@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Record - Leaf Green Training Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --forest-green: #1B4332;
+            --sage-green: #52B788;
+            --charcoal: #2D3748;
+            --warm-white: #FEFEFE;
+            --rich-black: #1A202C;
+        }
+        
+        body {
+            font-family: 'Suisse Int\'l', sans-serif;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #F8F9FA 100%);
+            color: var(--rich-black);
+            line-height: 1.6;
+        }
+        
+        .tiempos {
+            font-family: 'Tiempos Headline', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--sage-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('resources/leadership-training.png') center/cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .client-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .client-card:hover {
+            border-color: var(--sage-green);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(27, 67, 50, 0.15);
+        }
+        
+        .industry-filter {
+            transition: all 0.3s ease;
+            border: 2px solid #E5E7EB;
+        }
+        
+        .industry-filter.active {
+            background: var(--sage-green);
+            color: white;
+            border-color: var(--sage-green);
+        }
+        
+        .industry-filter:hover {
+            border-color: var(--sage-green);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--sage-green);
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .splide__arrow {
+            background: var(--sage-green);
+        }
+        
+        .splide__arrow:hover {
+            background: var(--forest-green);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">LG</span>
+                    </div>
+                    <span class="tiempos text-xl font-bold text-gray-800">Leaf Green</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">About</a>
+                    <a href="audit.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Audit</a>
+                    <a href="services.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Services</a>
+                    <a href="process.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Process</a>
+                    <a href="#trackrecord" class="nav-link text-green-800 font-medium">Track Record</a>
+                    <a href="cta.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section pt-32 pb-20">
+        <div class="hero-content max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <h1 class="tiempos text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Proven Track Record
+                </h1>
+                <p class="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                    Over a decade of transforming organizations across Botswana's key industries — 
+                    from mining and finance to government and retail.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Filter -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <h2 class="tiempos text-2xl font-bold text-gray-800 mb-6">Filter by Industry</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="industry-filter active px-6 py-3 rounded-lg font-medium" data-industry="all">All Industries</button>
+                    <button class="industry-filter px-6 py-3 rounded-lg font-medium" data-industry="mining">Mining & Energy</button>
+                    <button class="industry-filter px-6 py-3 rounded-lg font-medium" data-industry="finance">Financial Services</button>
+                    <button class="industry-filter px-6 py-3 rounded-lg font-medium" data-industry="manufacturing">Manufacturing</button>
+                    <button class="industry-filter px-6 py-3 rounded-lg font-medium" data-industry="retail">Retail & Distribution</button>
+                    <button class="industry-filter px-6 py-3 rounded-lg font-medium" data-industry="government">Government</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Portfolio -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="clients-grid">
+                <!-- Mining & Energy Clients -->
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="mining">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Debswana</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Leadership development and safety training for Africa's leading diamond producer.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Mining & Energy
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="mining">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Lucara Diamond</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Strategic planning and operational excellence programs for diamond recovery operations.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Mining & Energy
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="mining">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Boteti Mining</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Leadership development and change management for emerging mining operations.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Mining & Energy
+                    </div>
+                </div>
+
+                <!-- Financial Services Clients -->
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="finance">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">FNBB</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Customer service excellence and digital transformation training for Botswana's leading bank.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                        Financial Services
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="finance">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">CEDA</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Leadership development and project management for Botswana's entrepreneurship authority.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                        Financial Services
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="finance">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">NDB</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Strategic planning and risk management training for National Development Bank.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                        Financial Services
+                    </div>
+                </div>
+
+                <!-- Manufacturing Clients -->
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="manufacturing">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Kgalagadi Breweries</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Process improvement and quality management training for Botswana's leading brewery.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                        Manufacturing & FMCG
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="manufacturing">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Foods Botswana</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Supply chain optimization and team building for major food processing company.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                        Manufacturing & FMCG
+                    </div>
+                </div>
+
+                <!-- Retail & Distribution Clients -->
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="retail">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Choppies</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Customer service excellence and retail management training across multiple locations.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        Retail & Distribution
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="retail">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Spar Group</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Leadership development and operational efficiency training for retail operations.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        Retail & Distribution
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="retail">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Mass Cash</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Team building and performance management for wholesale distribution network.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        Retail & Distribution
+                    </div>
+                </div>
+
+                <!-- Government Clients -->
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="government">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-slate-400 to-slate-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Gaborone City Council</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Public service excellence and leadership development for municipal governance.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        Government & Parastatals
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="government">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">BICA</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Professional development and compliance training for Botswana Institute of Chartered Accountants.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        Government & Parastatals
+                    </div>
+                </div>
+
+                <div class="client-card bg-white rounded-xl p-6 shadow-lg" data-industry="government">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-violet-400 to-violet-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tiempos text-xl font-bold text-gray-800">Botswana Power Corporation</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Technical training and safety compliance for national power utility operations.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        Government & Parastatals
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="tiempos text-4xl font-bold text-gray-800 mb-4">Measurable Impact</h2>
+                <p class="text-xl text-gray-600">Our training programs deliver quantifiable results across key performance indicators</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-2">35%</div>
+                    <p class="text-gray-600">Average productivity increase</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-2">42%</div>
+                    <p class="text-gray-600">Employee engagement improvement</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-2">28%</div>
+                    <p class="text-gray-600">Cost reduction through efficiency</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-800 mb-2">95%</div>
+                    <p class="text-gray-600">Client satisfaction rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="tiempos text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600">Testimonials from leaders who've experienced transformation</p>
+            </div>
+            
+            <div class="splide" id="testimonials-slider">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-2xl font-bold text-green-600">DM</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">David Magang</h4>
+                                        <p class="text-gray-600 text-sm">Former CEO, Debswana</p>
+                                    </div>
+                                </div>
+                                <blockquote class="text-gray-600 text-lg leading-relaxed">
+                                    "Leaf Green's Anonymous Performance Audit revealed issues we didn't even know existed. 
+                                    The targeted training programs delivered measurable improvements in both safety metrics 
+                                    and operational efficiency. Their data-driven approach sets them apart."
+                                </blockquote>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-2xl font-bold text-blue-600">SM</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Sarah Molefi</h4>
+                                        <p class="text-gray-600 text-sm">HR Director, FNBB</p>
+                                    </div>
+                                </div>
+                                <blockquote class="text-gray-600 text-lg leading-relaxed">
+                                    "The transformation in our customer service quality has been remarkable. 
+                                    Leaf Green's training didn't just teach skills — it changed our culture. 
+                                    Customer satisfaction scores improved by 40% within six months."
+                                </blockquote>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-2xl font-bold text-purple-600">TK</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Thabo Kgosana</h4>
+                                        <p class="text-gray-600 text-sm">Operations Manager, Choppies</p>
+                                    </div>
+                                </div>
+                                <blockquote class="text-gray-600 text-lg leading-relaxed">
+                                    "Leaf Green understood our retail challenges immediately. Their practical approach 
+                                    to training delivery across multiple locations while maintaining consistency 
+                                    was exactly what we needed for our expansion strategy."
+                                </blockquote>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="testimonial-card">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-2xl font-bold text-orange-600">LN</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800">Lesedi Ndlovu</h4>
+                                        <p class="text-gray-600 text-sm">Director, BICA</p>
+                                    </div>
+                                </div>
+                                <blockquote class="text-gray-600 text-lg leading-relaxed">
+                                    "Professional development is critical in our industry. Leaf Green's compliance 
+                                    and ethics training programs have helped us maintain the highest standards 
+                                    while building leadership capacity across the profession."
+                                </blockquote>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-12">
+                <h2 class="tiempos text-3xl font-bold text-gray-800 mb-4">Join Our Success Stories</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Ready to achieve measurable results like these industry leaders? 
+                    Let's discuss how we can transform your organization.
+                </p>
+                <a href="cta.html" class="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
+                    Start Your Transformation
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-4 mb-6">
+                <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">LG</span>
+                </div>
+                <span class="tiempos text-2xl font-bold">Leaf Green Training Solutions</span>
+            </div>
+            <p class="text-gray-400 mb-4">Transforming People. Optimizing Processes. Driving Results.</p>
+            <p class="text-gray-500 text-sm">© 2024 Leaf Green Training Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Industry filtering functionality
+        const industryButtons = document.querySelectorAll('.industry-filter');
+        const clientCards = document.querySelectorAll('.client-card');
+
+        industryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                industryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const industry = button.dataset.industry;
+                
+                // Filter cards
+                clientCards.forEach(card => {
+                    if (industry === 'all' || card.dataset.industry === industry) {
+                        card.style.display = 'block';
+                        anime({
+                            targets: card,
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            duration: 300,
+                            easing: 'easeOutQuad'
+                        });
+                    } else {
+                        anime({
+                            targets: card,
+                            opacity: [1, 0],
+                            translateY: [0, -20],
+                            duration: 200,
+                            easing: 'easeInQuad',
+                            complete: () => {
+                                card.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+        // Initialize testimonials slider
+        document.addEventListener('DOMContentLoaded', function() {
+            new Splide('#testimonials-slider', {
+                type: 'loop',
+                perPage: 1,
+                perMove: 1,
+                autoplay: true,
+                interval: 5000,
+                pauseOnHover: true,
+                arrows: true,
+                pagination: true,
+                breakpoints: {
+                    768: {
+                        perPage: 1,
+                    }
+                }
+            }).mount();
+        });
+    </script>
+</body>
+</html>

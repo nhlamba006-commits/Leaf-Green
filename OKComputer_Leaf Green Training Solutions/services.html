@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Services - Leaf Green Training Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        :root {
+            --forest-green: #1B4332;
+            --sage-green: #52B788;
+            --charcoal: #2D3748;
+            --warm-white: #FEFEFE;
+            --rich-black: #1A202C;
+        }
+        
+        body {
+            font-family: 'Suisse Int\'l', sans-serif;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #F8F9FA 100%);
+            color: var(--rich-black);
+            line-height: 1.6;
+        }
+        
+        .tiempos {
+            font-family: 'Tiempos Headline', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--sage-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('resources/process-abstract.png') center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            border-color: var(--sage-green);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(27, 67, 50, 0.15);
+        }
+        
+        .category-filter {
+            transition: all 0.3s ease;
+            border: 2px solid #E5E7EB;
+        }
+        
+        .category-filter.active {
+            background: var(--sage-green);
+            color: white;
+            border-color: var(--sage-green);
+        }
+        
+        .category-filter:hover {
+            border-color: var(--sage-green);
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">LG</span>
+                    </div>
+                    <span class="tiempos text-xl font-bold text-gray-800">Leaf Green</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">About</a>
+                    <a href="audit.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Audit</a>
+                    <a href="#services" class="nav-link text-green-800 font-medium">Services</a>
+                    <a href="process.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Process</a>
+                    <a href="trackrecord.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Track Record</a>
+                    <a href="cta.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section pt-32 pb-20">
+        <div class="hero-content max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <h1 class="tiempos text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Comprehensive Training Solutions
+                </h1>
+                <p class="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                    From leadership development to technical skills, we design, deliver, and measure impact — 
+                    tailored to your company's goals, culture, and budget.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="tiempos text-4xl font-bold text-gray-800 mb-4">Explore Our Training Categories</h2>
+                <div class="flex flex-wrap justify-center gap-4 mt-8">
+                    <button class="category-filter active px-6 py-3 rounded-lg font-medium" data-category="all">All Services</button>
+                    <button class="category-filter px-6 py-3 rounded-lg font-medium" data-category="leadership">Leadership</button>
+                    <button class="category-filter px-6 py-3 rounded-lg font-medium" data-category="technical">Technical</button>
+                    <button class="category-filter px-6 py-3 rounded-lg font-medium" data-category="compliance">Compliance</button>
+                    <button class="category-filter px-6 py-3 rounded-lg font-medium" data-category="digital">Digital</button>
+                    <button class="category-filter px-6 py-3 rounded-lg font-medium" data-category="soft-skills">Soft Skills</button>
+                </div>
+            </div>
+
+            <!-- Corporate & Government Training -->
+            <div class="mb-16">
+                <h3 class="tiempos text-3xl font-bold text-gray-800 mb-8 text-center">Corporate & Government Training Solutions</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+                    <!-- Leadership Development -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="leadership">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Leadership Development</h4>
+                        <p class="text-gray-600 text-sm">Strategic leadership, team management, and executive coaching for all management levels.</p>
+                    </div>
+
+                    <!-- Strategic Planning -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="leadership">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Strategic Planning & Execution</h4>
+                        <p class="text-gray-600 text-sm">Vision development, goal setting, and implementation strategies for organizational success.</p>
+                    </div>
+
+                    <!-- Change Management -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="leadership">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Change Management</h4>
+                        <p class="text-gray-600 text-sm">Navigate organizational transitions with proven methodologies and stakeholder engagement.</p>
+                    </div>
+
+                    <!-- Performance Management -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="leadership">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Performance Management</h4>
+                        <p class="text-gray-600 text-sm">Systems and processes to optimize individual and team performance outcomes.</p>
+                    </div>
+
+                    <!-- Emotional Intelligence -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="soft-skills">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Emotional Intelligence & Team Building</h4>
+                        <p class="text-gray-600 text-sm">Develop self-awareness, empathy, and collaboration skills for high-performing teams.</p>
+                    </div>
+
+                    <!-- Customer Service -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="soft-skills">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Customer Service Excellence</h4>
+                        <p class="text-gray-600 text-sm">Deliver exceptional customer experiences through service excellence training.</p>
+                    </div>
+
+                    <!-- Risk & Compliance -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="compliance">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Risk, Compliance & Safety</h4>
+                        <p class="text-gray-600 text-sm">Comprehensive training on regulatory compliance and workplace safety standards.</p>
+                    </div>
+
+                    <!-- Cybersecurity Awareness -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="compliance">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Cybersecurity Awareness</h4>
+                        <p class="text-gray-600 text-sm">Protect your organization with essential cybersecurity knowledge and best practices.</p>
+                    </div>
+
+                    <!-- Process Improvement -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="digital">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Process Improvement & Digital Transformation</h4>
+                        <p class="text-gray-600 text-sm">Streamline operations and embrace digital innovation for competitive advantage.</p>
+                    </div>
+
+                    <!-- Microsoft Office -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="technical">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Microsoft Office Suite</h4>
+                        <p class="text-gray-600 text-sm">Master Excel, PowerPoint, Word, and other Office applications for productivity.</p>
+                    </div>
+
+                    <!-- Project Management -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="technical">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Project Management</h4>
+                        <p class="text-gray-600 text-sm">Learn proven methodologies for successful project delivery and stakeholder management.</p>
+                    </div>
+
+                    <!-- Finance for Non-Finance -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="technical">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Finance for Non-Finance Managers</h4>
+                        <p class="text-gray-600 text-sm">Understand financial statements, budgeting, and financial decision-making processes.</p>
+                    </div>
+
+                    <!-- Procurement & Supply Chain -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="technical">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Procurement & Supply Chain</h4>
+                        <p class="text-gray-600 text-sm">Optimize sourcing, vendor management, and supply chain operations for efficiency.</p>
+                    </div>
+
+                    <!-- Occupational Health & Safety -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="compliance">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Occupational Health & Safety</h4>
+                        <p class="text-gray-600 text-sm">Create safe working environments with comprehensive health and safety training.</p>
+                    </div>
+
+                    <!-- Artificial Intelligence -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="digital">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Artificial Intelligence Fundamentals</h4>
+                        <p class="text-gray-600 text-sm">Understand AI applications and implications for modern business operations.</p>
+                    </div>
+
+                    <!-- Data Analytics -->
+                    <div class="service-card bg-white rounded-xl p-6 shadow-lg" data-category="digital">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="tiempos text-lg font-bold text-gray-800 mb-2">Data Analytics & Reporting</h4>
+                        <p class="text-gray-600 text-sm">Transform data into actionable insights with modern analytics tools and techniques.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Programs -->
+            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-12 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tiempos text-3xl font-bold text-gray-800 mb-4">Custom Learning Programs</h3>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Don't see exactly what you need? We design, deliver, and measure impact — 
+                        tailored to your company's specific goals, culture, and budget.
+                    </p>
+                    <a href="cta.html" class="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
+                        Discuss Your Custom Program
+                        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-4 mb-6">
+                <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">LG</span>
+                </div>
+                <span class="tiempos text-2xl font-bold">Leaf Green Training Solutions</span>
+            </div>
+            <p class="text-gray-400 mb-4">Transforming People. Optimizing Processes. Driving Results.</p>
+            <p class="text-gray-500 text-sm">© 2024 Leaf Green Training Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Category filtering functionality
+        const categoryButtons = document.querySelectorAll('.category-filter');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const category = button.dataset.category;
+                
+                // Filter cards
+                serviceCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        anime({
+                            targets: card,
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            duration: 300,
+                            easing: 'easeOutQuad'
+                        });
+                    } else {
+                        anime({
+                            targets: card,
+                            opacity: [1, 0],
+                            translateY: [0, -20],
+                            duration: 200,
+                            easing: 'easeInQuad',
+                            complete: () => {
+                                card.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

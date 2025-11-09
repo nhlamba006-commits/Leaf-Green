@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf Green Training Solutions - Transforming People. Optimizing Processes. Driving Results.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&family=Suisse+Int'l:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        :root {
+            --forest-green: #1B4332;
+            --sage-green: #52B788;
+            --charcoal: #2D3748;
+            --warm-white: #FEFEFE;
+            --rich-black: #1A202C;
+        }
+        
+        body {
+            font-family: 'Suisse Int\'l', sans-serif;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #F8F9FA 100%);
+            color: var(--rich-black);
+            line-height: 1.6;
+        }
+        
+        .tiempos {
+            font-family: 'Tiempos Headline', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--sage-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('resources/hero-main.png') center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--sage-green), var(--warm-white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(27, 67, 50, 0.15);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--sage-green), #40916C);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(82, 183, 136, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">LG</span>
+                    </div>
+                    <span class="tiempos text-xl font-bold text-gray-800">Leaf Green</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-600 hover:text-green-800 font-medium">About</a>
+                    <a href="audit.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Audit</a>
+                    <a href="services.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Services</a>
+                    <a href="process.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Process</a>
+                    <a href="trackrecord.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Track Record</a>
+                    <a href="cta.html" class="nav-link text-gray-600 hover:text-green-800 font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section min-h-screen flex items-center pt-20">
+        <div class="hero-content max-w-7xl mx-auto px-6 py-20">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="tiempos text-6xl lg:text-7xl font-bold text-white leading-tight">
+                            Transforming People.
+                            <span class="gradient-text">Optimizing Processes.</span>
+                            Driving Results.
+                        </h1>
+                        <p class="text-xl text-gray-200 leading-relaxed max-w-2xl">
+                            We partner with organizations to identify what's really holding them back and design targeted, 
+                            results-driven training programs that transform teams from the inside out.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="audit.html" class="cta-button inline-flex items-center px-8 py-4 rounded-lg text-white font-semibold text-lg">
+                            Start Your Anonymous Audit
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="services.html" class="inline-flex items-center px-8 py-4 rounded-lg border-2 border-white text-white font-semibold text-lg hover:bg-white hover:text-green-800 transition-all duration-300">
+                            Explore Our Services
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="floating-element">
+                    <div class="relative">
+                        <img src="resources/hero-main.png" alt="Professional Corporate Training" class="rounded-2xl shadow-2xl w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="contact-info rounded-xl p-6 text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tiempos text-lg font-bold text-gray-800 mb-2">Phone</h3>
+                    <p class="text-gray-600">+267 71 856 864</p>
+                    <p class="text-gray-600">+267 725 652 00</p>
+                    <p class="text-gray-600">+267 751 630 34</p>
+                </div>
+                
+                <div class="contact-info rounded-xl p-6 text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tiempos text-lg font-bold text-gray-800 mb-2">Email</h3>
+                    <p class="text-gray-600">tumisangm@leafgreen.co.bw</p>
+                    <p class="text-gray-600">admin@leafgreen.co.bw</p>
+                </div>
+                
+                <div class="contact-info rounded-xl p-6 text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tiempos text-lg font-bold text-gray-800 mb-2">Location</h3>
+                    <p class="text-gray-600">Gaborone, Botswana</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Cards -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="tiempos text-4xl font-bold text-gray-800 mb-4">Why Organizations Choose Leaf Green</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We don't just train people — we build capacity, shift culture, and drive measurable performance improvements across your entire organization.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tiempos text-xl font-bold text-gray-800 mb-4">Data-Driven Results</h3>
+                    <p class="text-gray-600">Our solutions are grounded in behavioral science and performance psychology, delivering measurable ROI from every training session.</p>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tiempos text-xl font-bold text-gray-800 mb-4">Proven Expertise</h3>
+                    <p class="text-gray-600">Over a decade of experience serving leading brands and government entities across Botswana's key industries.</p>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-800 to-green-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="tiempos text-xl font-bold text-gray-800 mb-4">Rapid Impact</h3>
+                    <p class="text-gray-600">Our Anonymous Organisational Audit™ reveals true performance barriers and delivers fast, targeted solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-4 mb-6">
+                <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">LG</span>
+                </div>
+                <span class="tiempos text-2xl font-bold">Leaf Green Training Solutions</span>
+            </div>
+            <p class="text-gray-400 mb-4">Transforming People. Optimizing Processes. Driving Results.</p>
+            <p class="text-gray-500 text-sm">© 2024 Leaf Green Training Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
